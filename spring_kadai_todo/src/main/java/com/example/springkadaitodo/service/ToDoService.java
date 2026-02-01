@@ -1,5 +1,21 @@
 package com.example.springkadaitodo.service;
 
-public class ToDoService {
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.example.springkadaitodo.entity.ToDo;
+import com.example.springkadaitodo.repository.ToDoRepository;
+
+@Service
+public class ToDoService {
+	private final ToDoRepository repo;
+
+	public ToDoService(ToDoRepository repo) {
+	this.repo = repo;
+	}
+
+	public List<ToDo> getAll() {
+	return repo.findAll();
+	}
 }
